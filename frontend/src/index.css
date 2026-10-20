@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-sans;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Operational GIS & Tactical Grid Patterns */
+.gis-grid-pattern, .tactical-grid-bg {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(115, 120, 115, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(115, 120, 115, 0.1) 1px, transparent 1px);
+}
+
+.rl-command-map {
+  position: absolute;
+  inset: 0;
+}
+.rl-command-map .leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #e4e1d4;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+.rl-map-legend {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 500;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  max-width: calc(100% - 24px);
+  padding: 6px 8px;
+  background: rgba(247, 244, 234, 0.94);
+  border: 1px solid #c3c8c2;
+  color: #1c241c;
+  font-size: 11px;
+}
+.rl-map-legend i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+.rl-map-legend button {
+  border: 1px solid #c3c8c2;
+  background: #fff;
+  padding: 2px 6px;
+  font-size: 11px;
+  cursor: pointer;
+}
+.rl-map-legend button:focus-visible {
+  outline: 2px solid #3f5135;
+  outline-offset: 1px;
+}
+
+.radar-sweep {
+  animation: radarSweep 6s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #ecefe7;
+}
+::-webkit-scrollbar-thumb {
+  background: #c3c8c2;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #737873;
+}
